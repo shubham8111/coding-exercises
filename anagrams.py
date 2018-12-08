@@ -7,8 +7,11 @@ determines whether they're anagrams of one another.
 Solution should run in O(n1 + n2)
 There are two solutions:
 	one is using counter
-	another one is also using dictionary, but slightly faster. (tests say it's actually not)
+	another one is also using dictionary, but slightly faster.
 '''
+"""
+New tests suggest one using counter is actually more than 2 times faster than one using dictionary
+"""
 from collections import Counter
 import random
 import string
