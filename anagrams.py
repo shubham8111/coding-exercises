@@ -7,15 +7,17 @@ determines whether they're anagrams of one another.
 Solution should run in O(n1 + n2)
 There are two solutions:
 	one is using counter
-	another one is also using dictionary, but slightly faster.
+	another one is also using dictionary, but slightly faster. (tests say it's actually not)
 '''
 from collections import Counter
-
+import random
+import string
+import time
 def are_anagrams(str1, str2):
 	if len(str1) != len(str2):
 		return False
-	dict1 = Counter(list(str1))
-	dict2 = Counter(list(str2))
+	dict1 = Counter(str1)
+	dict2 = Counter(str2)
 	for char in dict1:
 		if not char in dict2 or dict2[char] != dict1[char]:
 			return False
@@ -48,3 +50,31 @@ assert are_anagrams_fast('table', 'bleate') == False
 assert are_anagrams_fast('honey', 'eyhon') == True
 assert are_anagrams_fast('area', 'are') == False
 assert are_anagrams_fast('', '') == True
+
+def time_test():
+	"""a time test to evaluate the performance two methods
+	results say anagrams_fast takes almost twice as much time :( """
+	loops = 10000
+	A = ""
+	B = ""
+	for x in range(1000):
+		A = A + random.choice(string.ascii_letters)
+	
+	A_shuff = list(A)
+	random.shuffle(A_shuff)
+	A_shuff = "".join(A_shuff)
+
+	s = time.clock()
+	for i in range(loops):
+		are_anagrams(A, A_shuff)
+	e = time.clock()
+	print("time by are_anagrams \t", e -s)
+	s = time.clock()
+	for i in range (loops):
+		are_anagrams_fast(A, A_shuff)
+	e = time.clock()
+	print("time by are_anagrams_fast\t", e -s)
+
+time_test()
+
+
