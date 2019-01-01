@@ -94,7 +94,7 @@ Programming Puzzles
 - [x] Reverse words while maintaining spaces and tabs in O(n) time (reverse_words.py) - 2
 - [x] Longest substring without repeating characters in O(n) time (lc_longest_nonrepeat_substring.py) - 2
 - [x] Longest contiguous substring of 2 distinct characters in O(n) time (substring_two_chars.py) - 2
-- [ ] Remove duplicate chars in a string
+- [x] Remove duplicate chars in a string(remove_duplicates.py)
 - [ ] Encode and decode Caesar cipher (caesar.py)
 - [ ] Check if a string is a rotation of another
 
